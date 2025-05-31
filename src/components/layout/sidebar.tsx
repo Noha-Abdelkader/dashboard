@@ -79,17 +79,16 @@ export default function SideBar() {
             <li
               key={element.title}
               className={cn(
-                openSidebar && "flex items-center",
-                " gap-2  [&>svg]:min-w-3   [&>svg]:w-3.5"
+                " gap-2  [&>svg]:min-w-3  [&>svg]:w-3.5 flex items-center"
               )}
             >
               {<element.icon />}
               <Link
                 href={element.href}
                 className={cn(
-                  !openSidebar && "hidden ",
+                  !openSidebar && "opacity-0 ",
 
-                  "transition-all duration-0  ease-in-out origin-left  text-sm capitalize"
+                  "transition-all duration-300  ease-in-out origin-left  text-sm capitalize overflow-hidden"
                 )}
               >
                 {element.title}
