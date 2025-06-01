@@ -30,7 +30,7 @@ export default function localLayout({
       <body>
         <Providers>
           <SideBar />
-        <div className="text-center text-red-200"> {locale} locale layout</div>
+          <div className="text-center text-red-200">{locale} locale layout</div>
 
           {/* {children} */}
           <WrapLayout>{children}</WrapLayout>

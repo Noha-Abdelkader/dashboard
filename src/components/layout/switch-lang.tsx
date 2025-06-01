@@ -28,7 +28,16 @@ export default function SwitchLang() {
     router.push(`${pathname}?${searchParams.toString()}`, { locale });
   };
 
+  // const pathWithoutLocale = pathname.replace(/^\/(en|ar)/, "") || "/";
+  // router.push(`${pathWithoutLocale}?${searchParams.toString()}`, { locale });
 
+  // router.push(pathname, { locale });
+  // const pathWithoutLocale = pathname.replace(/^\/(en|ar)/, "") || "/";
+  //  const newUrl = `/${locale}${pathWithoutLocale}?${searchParams.toString()}`;
+
+  //  console.log(newUrl);
+  // 3. Force a hard navigation to avoid duplication
+  //  window.location.href = newUrl;
 
   return (
     <DropdownMenu>
@@ -41,7 +50,7 @@ export default function SwitchLang() {
             <DropdownMenuItem
               key={element}
               className="capitalize"
-                    onClick={() => switchLocale(element)}
+              onClick={() => switchLocale(element)}
             >
               {element}
             </DropdownMenuItem>

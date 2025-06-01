@@ -17,10 +17,10 @@ export type SideBar = {
 
 // List
 export const sideBarList: SideBar[] = [
-  { title: "dashboard", icon: LayoutDashboard, href: "/" },
-  { title: "applications", icon: Dock, href: "/" },
-  { title: "charts", icon: ChartArea, href: "/" },
-  { title: "notifications", icon: Bell, href: "/" },
-  { title: "maps", icon: MapPin, href: "/" },
-  { title: "countaries", icon: Map, href: "/" },
+  { title: "dashboard", icon: LayoutDashboard, href: "/dashboard" },
+  { title: "applications", icon: Dock, href: "/applications" },
+  { title: "charts", icon: ChartArea, href: "/charts" },
+  { title: "notifications", icon: Bell, href: "/notifications" },
+  { title: "maps", icon: MapPin, href: "/maps" },
+  { title: "countaries", icon: Map, href: "/countaries" },
 ];

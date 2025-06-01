@@ -8,6 +8,7 @@ import Navbar from "@/components/layout/navbar";
 
 // Hooks
 import { useSidebarToggle } from "../_hooks/sidebar.hook";
+import BreadCrumb from "@/components/layout/bread-crumb";
 export default function WrapLayout({
   children,
 }: {
@@ -24,6 +25,7 @@ export default function WrapLayout({
         )}
       >
         <Navbar />
+            <BreadCrumb/>
         {children}
       </div>
     </main>

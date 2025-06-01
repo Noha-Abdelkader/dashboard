@@ -1,21 +1,32 @@
-import React from "react";
+"use client";
 
-// import { Switch } from "@/components/ui/switch";
+import React, { useEffect, useState } from "react";
+import { Moon, Sun } from "lucide-react";
 
 // Theme
 import { useTheme } from "next-themes";
-import { Moon, Sun } from "lucide-react";
 
 export default function SwitchTheme() {
   // Theme
   const theme = useTheme();
 
+  const [mounted, setMounted] = useState(false);
+
+  // Ensure it only renders after client hydration
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  if (!theme.theme) return null;
+
   return (
-    <div className="cursor-pointer *:w-5 ">
+    <div className="cursor-pointer *:max-w-4 ">
       {theme.theme == "light" ? (
-        <Sun onClick={() => theme.setTheme("dark")} />
+        <Moon onClick={() => theme.setTheme("dark")} />
       ) : (
-        <Moon onClick={() => theme.setTheme("light")} />
+        <Sun onClick={() => theme.setTheme("light")} />
       )}
     </div>
   );

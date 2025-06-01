@@ -65,8 +65,8 @@ export default function SideBar() {
           />
           <span
             className={cn(
-              openSidebar ? "block" : "hidden",
-              "text-center transition-time delay-700"
+              !openSidebar && "opacity-0",
+              "text-center transition-all duration-300  ease-in-out block"
             )}
           >
             Smart
@@ -76,22 +76,24 @@ export default function SideBar() {
         {/* List */}
         <ul className="divide-y-2 divide-zinc-50 divide-opacity-30 px-3 *:py-3 ">
           {sideBarList.map((element) => (
-            <li
-              key={element.title}
-              className={cn(
-                " gap-2  [&>svg]:min-w-3  [&>svg]:w-3.5 flex items-center"
-              )}
-            >
-              {<element.icon />}
+            <li key={element.title}>
               <Link
                 href={element.href}
                 className={cn(
-                  !openSidebar && "opacity-0 ",
-
-                  "transition-all duration-300  ease-in-out origin-left  text-sm capitalize overflow-hidden"
+                  openSidebar ? "gap-2" : "justify-center gap-0",
+                  "[&>svg]:min-w-3  [&>svg]:w-3.5 flex items-center"
                 )}
               >
-                {element.title}
+                {<element.icon />}
+                <span
+                  className={cn(
+                    !openSidebar && "opacity-0 w-0",
+
+                    "transition-all duration-300  ease-in-out origin-left  text-sm capitalize overflow-hidden"
+                  )}
+                >
+                  {element.title}
+                </span>
               </Link>
             </li>
           ))}
