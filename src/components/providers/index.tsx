@@ -13,6 +13,7 @@ import {
   useNow,
   useTimeZone,
 } from "next-intl";
+import TankStack from "./components/tank-stack";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   // Translation
@@ -29,14 +30,16 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         enableSystem
         disableTransitionOnChange
       >
-        <NextIntlClientProvider
-          messages={messages}
-          locale={locale}
-          timeZone={timezone}
-          now={now}
-        >
-          <ReduxProvider>{children}</ReduxProvider>
-        </NextIntlClientProvider>
+        <TankStack>
+          <NextIntlClientProvider
+            messages={messages}
+            locale={locale}
+            timeZone={timezone}
+            now={now}
+          >
+            <ReduxProvider>{children}</ReduxProvider>
+          </NextIntlClientProvider>
+        </TankStack>
       </ThemeProvider>
     </>
   );
