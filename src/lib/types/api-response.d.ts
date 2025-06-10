@@ -4,6 +4,8 @@ declare type SuccessResponse<T> = {
 
 declare type FailureResponse<T> = {
   status: Exclude<number, 200>;
+  error?: string;
+  errors?: string;
 } & T;
 
 declare type ApiResponse<T> = SuccessResponse<T> | FailureResponse<T>;

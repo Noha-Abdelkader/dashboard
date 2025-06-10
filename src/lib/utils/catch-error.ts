@@ -1,6 +1,7 @@
 export async function catchError<T>(callback: Promise<ApiResponse<T>>) {
   try {
     const response = await callback;
+
     if (response.status === 200) {
       return response as SuccessResponse<T>;
     }

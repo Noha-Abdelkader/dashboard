@@ -20,12 +20,12 @@ export default function WrapLayout({
     <main className="flex justify-end">
       <div
         className={cn(
-          "transition-time px-5  ",
+          "transition-effect px-5  ",
           isSidebarOpen ? "w-[calc(100%-12rem)]" : "w-[calc(100%-3rem)]"
         )}
       >
         <Navbar />
-            {/* <BreadCrumb/> */}
+        {/* <BreadCrumb/> */}
         {children}
       </div>
     </main>

@@ -1,23 +1,20 @@
 // import 'server-only';
 
-import { Post } from "@/lib/types/posts/posts";
+import { Post } from "@/lib/types/features/post/post";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const baseQuery = process.env.BASE_URL_DUMMY;
+// const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 export const postsApi = createApi({
   reducerPath: "getPosts",
-  baseQuery: fetchBaseQuery({ baseUrl: baseQuery }),
+  baseQuery: fetchBaseQuery({ baseUrl: "/api" }),
   endpoints: (builder) => ({
     // RTK Query بيعتبر إن الـ query function لازم تاخد argument (حتى لو فاضي).
     // الاول بيكون هترجع اية
     // التاني بتاخد اية
 
     getPosts: builder.query<{ posts: Post[] }, void>({
-      query: () => {
-        console.log(process.env.BASE_URL_DUMMY, "process.env.BASE_URL_DUMMY");
-        return "/posts";
-      },
+      query: () => "/posts",
     }),
   }),
 });

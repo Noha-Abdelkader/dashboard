@@ -26,7 +26,7 @@ export default function SideBar() {
     <aside
       className={cn(
         openSidebar ? "w-48" : " w-12",
-        " bg-sky-700 text-zinc-200   transition-time fixed inset-y-0 left-0 rtl:right-0 rounded-br-3xl  rounded-tr-3xl rtl:rounded-bl-3xl rtl:rounded-tl-3xl shadow-slate-500 shadow-xl dark:shadow-slate-700"
+        " bg-sky-700 text-zinc-200   transition-effect fixed inset-y-0 left-0 rtl:right-0 rounded-br-3xl  rounded-tr-3xl rtl:rounded-bl-3xl rtl:rounded-tl-3xl shadow-slate-500 shadow-xl dark:shadow-slate-700"
       )}
     >
       <div
@@ -50,7 +50,7 @@ export default function SideBar() {
               openSidebar
                 ? "rotate-0 rtl:rotate-180"
                 : "rotate-180 rtl:rotate-0",
-              "transition-time"
+              "transition-effect"
             )}
           />
         </div>
