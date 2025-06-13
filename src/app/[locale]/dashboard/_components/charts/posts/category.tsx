@@ -19,22 +19,20 @@ import { useGetPostsQuery } from "@/stores/services/posts";
 
 // Colors
 const COLORS = [
-  "#0088FE",
-  "#00C49F",
-  "#FFBB28",
-  "#FF8042",
-  "#0088FE",
-  "#00C49F",
-  "#FFBB28",
-  "#FF8042",
-  "#0088FE",
-  "#00C49F",
-  "#FFBB28",
-  "#FF8042",
-  "#0088FE",
-  "#00C49F",
-  "#FFBB28",
-  "#FF8042",
+  "#d8b4fe",
+  "#a5f3fc",
+  "#fde047",
+  "#38bdf8",
+  "#fdba74",
+  "#cbd5e1",
+  "#bbf7d0",
+  "#fecaca",
+  "#d9f99d",
+  "#d1d5db",
+  "#7dd3fc",
+  "#a7f3d0",
+  "#ddd6fe",
+  "#c7d2fe",
 ];
 
 // Style
@@ -52,6 +50,7 @@ export default function Category() {
     { key: string; value: number }[]
   >([]);
 
+  // Effects
   useEffect(() => {
     if (data?.posts) {
       const x = data.posts.map((ele) => ele.tags).flat();
@@ -76,66 +75,47 @@ export default function Category() {
       {/* Error */}
       {isError && <div>{JSON.stringify(error)}</div>}
 
-      {/* {JSON.stringify(categories)} */}
-      {/* Chart */}
-      {/* <PieChart width={800} height={400} className="section-chart">
-        <Pie
-          data={categories}
-          cx={120}
-          cy={200}
-          innerRadius={60}
-          outerRadius={80}
-          fill="#8884d8"
-          paddingAngle={5}
-          dataKey="value"
+      {!isLoading && !isError && (
+        <ResponsiveContainer
+          width="100%"
+          height={280}
+          className="section-chart"
         >
-          {categories.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-        {/* <Pie
-          data={categories}
-          cx={420}
-          cy={200}
-          startAngle={180}
-          endAngle={0}
-          innerRadius={60}
-          outerRadius={80}
-          fill="#8884d8"
-          paddingAngle={5}
-          dataKey="value"
-        >
-          {categories.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie> 
-      </PieChart> */}
-
-      <ResponsiveContainer width="100%" height={300} className="section-chart">
-        <RadialBarChart
-          cx="50%"
-          cy="50%"
-          innerRadius="10%"
-          outerRadius="100%"
-          barSize={10}
-          data={categories}
-          barGap={5}
-        >
-          <RadialBar
-            minAngle={15}
-            label={{ position: "insideStart", fill: "#fff" }}
-            background
-            clockWise
-            dataKey="value"
-          />
-          {/* <Legend
-            iconSize={10}
-            layout="vertical"
-            verticalAlign="middle"
-            wrapperStyle={style}
-          /> */}
-        </RadialBarChart>
-      </ResponsiveContainer>
+          <RadialBarChart
+            cx="50%"
+            cy="50%"
+            innerRadius="10%"
+            outerRadius="100%"
+            barSize={10}
+            data={categories}
+            barGap={5}
+          >
+            <RadialBar
+              label={{ position: "insideStart", fill: "#fff" }}
+              background
+              dataKey="value"
+            />
+            <Legend
+              iconSize={10}
+              layout="vertical"
+              verticalAlign="middle"
+              wrapperStyle={style}
+              formatter={(value, entry, index) => (
+                <span
+                  style={{
+                    color: COLORS[index],
+                    fontSize: 14,
+                    textTransform: "capitalize",
+                  }}
+                >
+                  <span className=" me-2">{categories[index].value}%</span>
+                  {categories[index].key}
+                </span>
+              )}
+            />
+          </RadialBarChart>
+        </ResponsiveContainer>
+      )}
     </>
   );
 }

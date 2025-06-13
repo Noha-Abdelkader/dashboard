@@ -3,16 +3,21 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Cal+Sans&family=Comic+Relief:wght@400;700&family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jura:wght@300..700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Hand+Pre:wght@400..700&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
 :root {
-  font-family: "Sarabun", sans-serif;
+  font-family:  "Inria Sans", "Edu NSW ACT Hand Pre", "Sarabun", sans-serif;
   --foreground: #171717;
+    --background: #53537c;
+
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #27272a;
     --foreground: #ededed;
+    // --foreground: #ededed;
   }
 }
 
@@ -117,7 +122,7 @@ body {
   }
 
   &-title {
-    @apply text-maroon-700 dark:text-soft-pink-200 font-bold text-2xl sm:text-3xl;
+    @apply text-sky-700 dark:text-soft-pink-200 font-bold text-sm  ;
 
     span {
       @apply text-soft-pink-500 mx-2 dark:text-maroon-400;
@@ -128,14 +133,16 @@ body {
     @apply text-zinc-500;
   }
   &-card {
-    @apply px-2 py-4;
+    @apply px-2 py-4 sm:px-4  ;
   }
   &-chart {
-    @apply  px-0  pt-4 pb-2 text-xs text-sky-700;
+    @apply  px-0  pt-8 pb-4 text-xs text-sky-700 ;
   }
   &-card,
   &-chart {
-    box-shadow: 3px 5px 10px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 1px 10px 3px rgba(0, 0, 0, 0.1);
+    // box-shadow: 3px 5px 10px 5px rgba(0, 0, 0, 0.1);
+    // box-shadow:0px 1px 10px 3px rgb(219, 232, 240);
     @apply rounded-md ;
   }
 }

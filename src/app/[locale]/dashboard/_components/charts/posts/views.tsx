@@ -16,6 +16,7 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
+  CartesianGrid,
 } from "recharts";
 
 export default function Views() {
@@ -30,27 +31,35 @@ export default function Views() {
       {isError && <div>{JSON.stringify(error)}</div>}
 
       {/* Chart */}
-      <ResponsiveContainer width="100%" height={300} className="section-chart">
-        {/* margin prop fix gap in left */}
-        <LineChart data={data?.posts} margin={{ right: 0, left: -35 }}>
-          <XAxis dataKey="id" padding={{ left: 10, right: 10 }} />
-          <YAxis
-            // tick={{ dx: -15 }}  gap between label & y-axis
-            // padding={{ bottom: 10 }} gap of start in y -axis
-            allowDataOverflow={true}
-            // domain={["dataMin", "dataMax"]}
-          />
-          <Tooltip />
-          <Legend />
-          <Line
-            type="monotone"
-            dataKey="views"
-            stroke="#0369a1"
-            activeDot={{ r: 8 }}
-          />
-          {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
-        </LineChart>
-      </ResponsiveContainer>
+      {!isLoading && !isError && (
+        <ResponsiveContainer
+          width="100%"
+          height={280}
+          className="section-chart"
+        >
+          {/* margin prop fix gap in left */}
+          <LineChart data={data?.posts} margin={{ right: 0, left: -35 }}>
+            <XAxis dataKey="id" padding={{ left: 10, right: 10 }} />
+            <YAxis
+              // tick={{ dx: -15 }}       gap between label & y-axis
+              // padding={{ bottom: 10 }} gap of start in y -axis
+              allowDataOverflow={true}
+              // domain={["dataMin", "dataMax"]}
+            />
+            <Legend />
+            <CartesianGrid strokeDasharray="3 3" />
+
+            <Tooltip />
+            <Legend />
+            <Line
+              type="monotone"
+              dataKey="views"
+              stroke="#0369a1"
+              activeDot={{ r: 8 }}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      )}
     </>
   );
 }
