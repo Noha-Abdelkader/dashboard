@@ -15,21 +15,21 @@ export default function Page() {
   return (
     <main className="section-wrapper space-y-4">
       {/* First */}
-      <div className="grid grid-cols-12 gap-4 *:space-y-4 *:col-span-12 *:sm:col-span-6 *:lg:col-span-3 *:bg-slate-50 *:relative *:after:content-'' *:after:absolute *:after:bg-sky-600 *:after:top-0 *:after:inset-x-0 *:after:w-full *:after:h-2 *:after:rounded-t-xl ">
+      <div className="grid grid-cols-12 gap-4 *:space-y-4 *:col-span-12 *:sm:col-span-6 *:lg:col-span-3 *:bg-slate-50 *:after-effect ">
         <Price />
         <Income />
-        <Rating />
         <Refund />
+        <Rating />
       </div>
       {/* Second */}
       <Home />
       {/* Third */}
-      <div className="grid grid-cols-12 *:col-span-12 *:sm:col-span-6 gap-4">
+      <div className="grid grid-cols-12 *:col-span-12 *:lg:col-span-6 gap-4">
         <Views />
         <Category />
       </div>
       {/* Fourth */}
-      <div className="grid grid-cols-12 *:col-span-12 *:sm:col-span-6  gap-4">
+      <div className="grid grid-cols-12 *:col-span-12 *:lg:col-span-6  gap-4">
         <Likes />
         <Dislikes />
       </div>
