@@ -20,6 +20,14 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "encrypted-tbn2.gstatic.com/**",
+      },
+      {
+        protocol: "https",
+        hostname: "encrypted-tbn3.gstatic.com/**",
+      },
+      {
+        protocol: "https",
         hostname: "img.freepik.com/**",
       },
       {
@@ -29,6 +37,14 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "flower.elevateegy.com/**",
+      },
+      {
+        protocol: "https",
+        hostname: "texttofloss.com/**",
+      },
+      {
+        protocol: "https",
+        hostname: "c0.klipartz.com/**",
       },
     ],
   },

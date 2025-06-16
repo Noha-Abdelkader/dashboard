@@ -20,7 +20,7 @@ export default function WrapLayout({
     <main className="flex justify-end">
       <div
         className={cn(
-          "transition-effect px-5  ",
+          "transition-effect ",
           isSidebarOpen ? "w-[calc(100%-12rem)]" : "w-[calc(100%-3rem)]"
         )}
       >

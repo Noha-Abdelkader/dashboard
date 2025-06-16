@@ -118,7 +118,7 @@ body {
 /* Sections */
 .section {
   &-wrapper {
-    @apply max-w-7xl mx-auto px-2 sm:px-10 py-5 sm:py-10;
+    @apply max-w-7xl mx-auto px-2 sm:px-10 py-5 sm:py-10 ;
   }
 
   &-title {
