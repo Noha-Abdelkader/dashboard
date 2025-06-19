@@ -13,7 +13,7 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "bg-white border-2 border-sky-700 hover:bg-sky-700 hover:text-white",
+          "text-sky-700 bg-white border-2 border-sky-700 hover:bg-sky-700 hover:text-white",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
@@ -25,6 +25,10 @@ const buttonVariants = cva(
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10",
       },
+      loading:{
+        true:"text-sky-700",
+        false:""
+      }
     },
     defaultVariants: {
       variant: "default",
@@ -47,7 +51,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
-      />
+      >
+        {props.loading && <p>load</p>}
+        {props.children}
+        </Comp>
     )
   }
 )

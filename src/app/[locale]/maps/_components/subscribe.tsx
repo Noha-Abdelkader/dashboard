@@ -1,6 +1,5 @@
 "use client";
 
-import { z } from "zod";
 // Hook Form
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -10,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -20,46 +18,54 @@ import { Input } from "@/components/ui/input";
 
 // Schema
 import { SubscribeForm, SubscribeSchema } from "@/lib/schemes/subscribe.shema";
+import useSubscription from "../_hooks/subscription";
 
-
-  function onSubmit(values: SubscribeForm) {
-    console.log(values);
-  }
 export default function Subscribe() {
+  // Hooks
+  const { mutate, isError, error, isPending } = useSubscription();
 
-    // Form
+  // Form
   const form = useForm<SubscribeForm>({
     resolver: zodResolver(SubscribeSchema),
     defaultValues: {
       email: "",
     },
   });
- 
-
+  // Submition
+  function onSubmit(values: SubscribeForm) {
+    return mutate(values);
+  }
+  if (isError) {
+    return <p>{JSON.stringify(error)}</p>;
+  }
   return (
     <div className="section-card">
-
-    <Form {...form} >
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
               <FormItem>
-              <FormLabel>email</FormLabel>
-              <FormControl>
-                <Input placeholder="shadcn" {...field} />
-              </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input placeholder="Enter your email" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
-          </div>
+          <Button
+            variant={"outline"}
+            size={"lg"}
+            type="submit"
+            disabled={isPending}
+
+>
+            Submit
+          </Button>
+        </form>
+      </Form>
+    </div>
   );
 }

@@ -21,10 +21,19 @@ const mobileImage = [
   "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTUjoxU0eilV-5Qmxo5EqEMuMijatyLqZrJ7dwjH7vQbcjjaPZ5",
   "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ1Z7Bf7Ivlmze081udzpGra3j2TxXSrq_4QC7w1T8qhBukeW5d",
 ];
-export default function Home() {
+export default async  function Home() {
+  // Fetch
+  // const response = await fetch(
+  //   process.env.BASE_URL_DUMMY + "/c/b209-5484-43e8-86af"
+  // );
+  // const payload = await response.json();
+  // console.log(payload);
+
   return (
     <div className="  relative z-0 ">
+      {/* Sky bg */}
       <div className="bg-sky-200 h-[75vh] absolute inset-0 -z-10"></div>
+      {/* Main content */}
       <div className="space-y-4 *:first-letter:capitalize section-wrapper">
         <Header
           h1="Smart home application"
@@ -35,20 +44,25 @@ export default function Home() {
           locks, appliances, and more, enabling real-time control and automation
           through an intuitive interface."
         />
-        <ul className="flex items-center justify-center gap-4 ">
+        {/* Mobile images */}
+        <ul className="flex items-center justify-center gap-4 md:gap-10 ">
           {mobileImage.map((element, index) => (
-            <li key={element}>
+            <li key={element} className="relative">
               <Image
                 src={element}
                 alt="mobile view"
                 width={200}
-                height={200}
-                style={{ boxShadow: "0px 1px 10px 3px rgba(0, 0, 0, 0.3)" }}
-                className={cn(index !== 1 && " mt-10", "rounded-2xl")}
+                height={250}
+                style={{
+                  height: "auto",
+                  boxShadow: "0px 1px 10px 3px rgba(0, 0, 0, 0.3)",
+                }}
+                className={cn(index !== 1 && " mt-14", "rounded-2xl")}
               />
             </li>
           ))}
         </ul>
+        {/* Logos */}
         <ul className="flex items-center justify-center gap-4 pt-10">
           {socialBtns.map((element, index) => (
             <li key={element.href}>
